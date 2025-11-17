@@ -25,7 +25,7 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Homework 5">
   <meta property="og:description" content="A series of plots about buildings, when they were constructed and what they are used for!">
-  <meta property="og:image" content="assets/pngs/cars.png">
+  <meta property="og:image" content="assets/pngs/buildings.png">
 
   <title>Homework 5</title>
   <meta name="description" content="A series of plots about buildings, when they were constructed and what they are used for!">
@@ -77,14 +77,21 @@
 
 <h2 id="building-inventory-visualizations">Building Inventory Visualizations</h2>
 
-<h3 id="visualization-1">Visualization 1</h3>
-<p>This visualization below shows the square footage of the buildings in the dataset in comparison to when they were constructed.</p>
+<h3 id="visualization-1---scatter-plot">Visualization 1 - Scatter Plot</h3>
 
 <vegachart schema-url="/assets/json/building-footage.json" style="width: 100%"></vegachart>
 
-<h3 id="visualization-2">Visualization 2</h3>
+<p>This visualization above shows the square footage of the buildings in a subsection of the dataset in comparison to when they were constructed. The color of each point on the plot represents the ‘Usage Description’ feature of the dataset, essentially communicating how that building is used. This allows the viewer to visually recognize trends in the sizes of buildings based on the year they were constructed and their use. For this first plot, I decided to use temporal encoding for the X variable and quantitative encoding for the Y variables. I opted to use the quantitative encoding for the Y variable, Square Footage, because this is a continuous numerical value. As the Year Constructed is a measure of time, it only felt appropriate to use temporal encoding for this variable. Finally, I chose to use nominal encoding for the Usage Description as these are discrete categorical variables. I chose to use the ‘tealblue’ color scheme. I selected this color scheme because there are types of color blindness such as protanopia where the person’s red and green cones are weaker, thus allowing them to most easily recognize differences in shades of blue. Due to this, I selected the ‘tealblue’ color scheme as all the shades included in the visualization are a shade of blue, allowing a viewer with this type of colorblindness to easily understand the information being conveyed in the visualization. Prior to creating the visualization, I realized I would have to use temporal encoding for the year constructed column. In order to do this, I had to convert the data within the Year Constructed column of the dataframe using the pandas .to_timestamp function. After that, I modified the dataset to remove all the buildings that had unknown construction years or a year of 0. Upon looking at this data, I personally felt that it was extremely sparse prior to the 1900s. Due to this, I decided to focus my visualization on buildings constructed after 1900 and filtered my data to only include those buildings. Due to the size of the dataset, I also chose to only examine 444 data points to ensure that I could make meaningful conclusions about a smaller portion of the data.</p>
+
+<h3 id="visualization-2---line-graph">Visualization 2 - Line Graph</h3>
 
 <vegachart schema-url="/assets/json/type_when_constructed.json" style="width: 100%"></vegachart>
+
+<p>The visualization above depicts the number of buildings constructed in each year based on their usage description. Each line in the graph represents a different use, allowing the viewer to see trends in which types of buildings were constructed when. As the X variable in this visualization is a measure of time, I decided to use temporal encoding. As the Y axis is a function analyzing the data in the X axis, I did not need to specify a specific type of encoding for this data. Finally, I chose to use nominal encoding for the color variable as each Usage Description is a discrete qualitative descriptor that has no inherent order. I made the conscious decision to use the default color scheme for this visualization because each usage description naturally takes on a series of colors that are both bright and have a stark contrast, all the viewers to easily differentiate between the lines. Similar to the data used in the scatterplot visualization, this data used in this line graph is also a sample of 444 buildings from the dataset. Once again, I opted for a smaller sample of the dataset so that I could make meaningful conclusions about a smaller part of the data and ensure that my findings were easily digestible. Additionally, I converted the Year Constructed column using the pandas .to_timestamp function to ensure that the data was in the correct format to use temporal encoding. Finally, as I made a few visualizations to explore the data, I found that the most interesting patterns start to emerge after the year 1900. Due to this, I filtered the dataset to only include buildings that were constructed after this point.</p>
+
+<h4 id="interactivity-in-the-line-graph">Interactivity in the Line Graph</h4>
+
+<p>The interactivity within my line graph can be accessed through the legend. If you select the name of the Usage Description in the legend, it will highlight that line in the graph. This interactivity allows the viewer to focus on one use at a time to help them understand construction trends of buildings of different sectors and industries. For example, as I was looking at this data, I was surprised to see that the number of residential buildings peaked around the early 1970s. If you want to look at all the lines at once, simply click on the graph or off the legend.</p>
 
 <div class="left">
 <a class="m-1 btn btn-outline-primary btn-2 " href="https://raw.githubusercontent.com/UIUC-iSchool-DataViz/is445_data/main/building_inventory.csv">
@@ -93,7 +100,7 @@
 </div>
 
 <div class="right">
-<a class="m-1 btn btn-outline-primary btn-2 " href="https://github.com/jnaiman/online_cv_public/blob/main/python_notebooks/test_generate_plots.ipynb">
+<a class="m-1 btn btn-outline-primary btn-2 " href="https://github.com/sravicha22/sravicha22.github.io/blob/0ea8dcb6de8464875d2ec9b20385a7837bec1d02/python_notebooks/HW5.ipynb">
   The Analysis
 </a>
 </div>
